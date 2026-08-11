@@ -29,6 +29,9 @@ const EVENT_CONFIG = {
   // "https://docs.google.com/forms/d/e/FORM_ID/viewform?usp=pp_url&entry.1234567890={song}&entry.0987654321={artist}"
   musicFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdqMSfJT2jTtIfuTB9fbc5xhPNK3CRjpVLsZj3rcyC8YlbjJQ/viewform?usp=dialog",
 
+  // WhatsApp de la Cumpleañera / Padres (RSVP y DJ)
+  whatsappNumber: "5491138235769",
+
   // Música de Fondo (MP3)
   backgroundMusicUrl: "./images/photograph.mp3",
 
