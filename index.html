@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Mis 15 Años - Invitación Digital</title>
+  <meta property="og:title" content="Estás Invitado a Mis 15 Años">
+  <meta property="og:description" content="Estás invitado a festejar mi cumpleaños. Tu presencia es especial para mí en este día. ¡Te espero!">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body class="theme-quinceanera">
+
+  <!-- ENVELOPE MODAL -->
+  <div class="envelope-overlay" id="envelopeOverlay">
+    <div class="envelope-card">
+      <div class="envelope-subtitle-wrapper">
+        <span class="envelope-subtitle" id="envelopeSubtitleFirst">🩵MIS</span>
+        <div class="envelope-monogram" id="envelopeMonogram">XV</div>
+        <span class="envelope-subtitle" id="envelopeSubtitleSecond">AÑOS</span>
+      </div>
+      <h1 class="envelope-title" id="envelopeTitle">Mia</h1>
+      <p style="font-size: 13px; color: var(--text-muted);">¡Queremos compartir este día tan especial con vos!</p>
+      
+      <button class="btn-open-envelope" id="btnOpenEnvelope" type="button" onclick="openInvitation()">
+        <i class="fa-solid fa-envelope-open"></i> ABRIR INVITACIÓN
+      </button>
+    </div>
+  </div>
+
+  <!-- MAIN VIEWPORT -->
+  <div class="app-viewport">
+    <div class="sparkle-bg"></div>
+
+    <main class="main-content">
+      
+      <!-- HERO -->
+      <section class="hero-section">
+        <div class="hero-subtitle" id="heroSubtitle">MIS 15 AÑOS</div>
+        <h1 class="hero-names" id="heroNames">Mia</h1>
+        <div class="hero-ornament"></div>
+        <p class="hero-tagline" id="heroTagline">"Estás invitado a festejar mi cumpleaños. Tu presencia es especial para mí en este día. ¡Te espero!"</p>
+
+        <div class="hero-gallery-preview" id="galleryPreview">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Foto Valentina 15 Años" id="heroImg">
+        </div>
+      </section>
+
+      <!-- CUENTA REGRESIVA -->
+      <section class="card-section">
+        <div class="section-header">
+          <span class="section-badge">FALTAN SÓLO</span>
+          <h2 class="section-title">Cuenta Regresiva</h2>
+        </div>
+
+        <div class="countdown-grid">
+          <div class="countdown-box">
+            <div class="countdown-value" id="cdDays">00</div>
+            <div class="countdown-label">Días</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-value" id="cdHours">00</div>
+            <div class="countdown-label">Hs</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-value" id="cdMinutes">00</div>
+            <div class="countdown-label">Min</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-value" id="cdSeconds">00</div>
+            <div class="countdown-label">Seg</div>
+          </div>
+        </div>
+
+        <button class="btn-calendar" id="btnAddToCalendar">
+          <i class="fa-regular fa-calendar-plus"></i> Agendar en mi Calendario
+        </button>
+      </section>
+
+      <!-- FIESTA & UBICACIÓN -->
+      <section class="card-section">
+        <div class="section-header">
+          <span class="section-badge">DÓNDE & CUÁNDO</span>
+          <h2 class="section-title">Detalles de la Fiesta</h2>
+        </div>
+
+        <div class="details-list">
+          <div class="detail-item">
+            <div class="detail-icon"><i class="fa-regular fa-clock"></i></div>
+            <div class="detail-info">
+              <h4 id="detailDate">Viernes, 27 de noviembre de 2026 - 21:30 hs</h4>
+              <p>¡Vení a festejar a lo grande desde temprano!</p>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="detail-info">
+              <h4 id="detailVenue">Salón Antares Dinamarca</h4>
+              <p id="detailAddress">2623, Temperley</p>
+              <a href="https://maps.google.com/?q=Sal%C3%B3n+Antares+Dinamarca+Temperley" target="_blank" class="btn-map" id="btnGoogleMaps">
+                <i class="fa-solid fa-map-pin"></i> Ver en Google Maps
+              </a>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <div class="detail-icon"><i class="fa-solid fa-shirt"></i></div>
+            <div class="detail-info">
+              <h4>Código de Vestimenta</h4>
+              <p id="detailDresscode">Elegante sport</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GOOGLE DRIVE FOTOS -->
+      <section class="card-section">
+        <div class="drive-box">
+          <div class="drive-icon-wrapper">
+            <i class="fa-solid fa-camera"></i>
+          </div>
+          
+          <div class="section-header" style="margin-bottom: 8px;">
+            <span class="section-badge">SUBÍ TUS FOTOS</span>
+            <h2 class="section-title">Álbum en Vivo de la Fiesta</h2>
+          </div>
+
+          <p class="drive-description">
+            Mirá las fotos en tiempo real en la carpeta de Google Drive y cargá tus propias imágenes usando el formulario. Los invitados tendrán rol de lector para ver las fotos desde cualquier dispositivo.
+          </p>
+
+          <div class="music-action">
+            <a href="#" target="_blank" class="btn-drive-upload" id="btnDriveUpload">
+              <i class="fa-brands fa-google-drive"></i> Ver Carpeta de Fotos
+            </a>
+          </div>
+          <div class="music-action">
+            <a href="#" target="_blank" class="btn-submit-song" id="btnPhotoForm">
+              <i class="fa-solid fa-image"></i> Subir Fotos por Formulario
+            </a>
+          </div>
+
+          <p class="drive-notes">
+            <i class="fa-solid fa-circle-info"></i> Acceso solo lectura a la carpeta; podés ver las fotos en vivo y usar el formulario para enviar tus imágenes.
+          </p>
+        </div>
+      </section>
+
+      <!-- MÚSICA PARA EL DJ -->
+      <section class="card-section">
+        <div class="section-header">
+          <span class="section-badge">¡PEDÍ TU TEMA PARA EL DJ!</span>
+          <h2 class="section-title">Playlist de la Fiesta</h2>
+        </div>
+
+        <div class="music-action">
+          <button type="button" class="btn-submit-song" id="btnOpenMusicForm">
+            <i class="fa-solid fa-music"></i> Proponer Canción
+          </button>
+        </div>
+      </section>
+
+      <!-- RSVP -->
+      <section class="card-section">
+        <div class="section-header">
+          <span class="section-badge">CONFIRMACIÓN</span>
+          <h2 class="section-title">Te esperamos!</h2>
+        </div>
+
+        <p class="drive-description text-center">
+          Es muy importante que respondas el formulario de CONFIRMACION lo antes posible. Por favor completalo ahora para confirmar tu asistencia.
+        </p>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScGEMiETR4C2HhgLkeMWKtFK7T_dZv0mxKPggJQT6O1qysmgg/viewform?usp=dialog" target="_blank" class="btn-submit-song">
+          <i class="fa-solid fa-check-circle"></i> Confirmar Asistencia
+        </a>
+      </section>
+
+      <footer class="footer-text">
+        <p>Plantilla 15 Años - Tarjetas Digitales</p>
+      </footer>
+
+    </main>
+  </div>
+
+  <audio id="bgAudio" loop preload="auto">
+    <source src="" type="audio/mp3">
+  </audio>
+
+  <button class="floating-audio-btn" id="btnToggleAudio">
+    <i class="fa-solid fa-music"></i>
+  </button>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
