@@ -37,8 +37,8 @@ const EVENT_CONFIG = {
 
   // Galería de fotos previa
   galleryPhotos: [
-    "./images/mia-banner.jpeg",
-    "./images/mia1.jpg",
-    "./images/mia1.png"
+    "./images/mia1.png",
+    "./images/mia1.jpg"
+
   ]
 };
